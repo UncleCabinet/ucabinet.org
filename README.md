@@ -1,2 +1,2 @@
 # rockmonkey studio website
-https://hamishmonke.github.io/rockmonkey-studio/
+https://hamishmonke.github.io/RM_Site/
