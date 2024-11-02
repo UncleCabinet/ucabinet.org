@@ -84,20 +84,17 @@ a:active {
     text-decoration: none;
 }
 
-.contact
-{
+.contact {
     background-color: white;
 }
 
-.socialmedia a
-{
+.socialmedia a {
     padding: 0px 5px;
     display: inline-block;
 }
 
-.socialmedia a:hover
-{
+.socialmedia a:hover {
     -ms-transform: scale(1.2);
     -webkit-transform: scale(1.2);
-    transform: scale(1.2); 
+    transform: scale(1.2);
 }
