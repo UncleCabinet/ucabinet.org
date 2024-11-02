@@ -3,35 +3,25 @@ body {
     font-family: Arial;
 }
 
-.rotate {
-    animation: rotation 5s;
-}
-
-.linear {
-    animation-timing-function: linear;
-}
-
-.infinite {
-    animation-iteration-count: infinite;
-}
-
 .topnav a {
-    display: flex;
-    color: #f2f2f2;
+    display: inline-block;
+    color: #000000;
+    background-color: #ffffff;
     padding: 30px 35px;
     text-decoration: none;
     font-size: 30px;
+    border-radius: 5%;
+    
+    transition: font-size .25s;
 }
 
 .topnav a:hover {
-    background-color: #38335a;
+    background-color: #979797;
     font-size: 35px;
-    color: white;
 }
 
 .topnav a.active {
-    background-color: #161422;
-    color: white;
+    background-color: #979797;
 }
 
 .games div {
@@ -78,12 +68,6 @@ a:visited {
     text-decoration: none;
 }
 
-a:active {
-    display: inline-block;
-    padding: 1px 1px;
-    text-decoration: none;
-}
-
 .contact {
     background-color: white;
 }
@@ -97,4 +81,9 @@ a:active {
     -ms-transform: scale(1.2);
     -webkit-transform: scale(1.2);
     transform: scale(1.2);
+}
+
+.downloads div {
+    display: inline-block;
+    padding: 30px;
 }
