@@ -1,3 +1,3 @@
 function ScrollTo(elementName) {
-    document.getElementById(elementName).scrollIntoView();
+    document.getElementsByClassName(elementName).scrollIntoView();
 }
