@@ -23,7 +23,6 @@ async function findGameFiles(owner, repo, path = "") {
 
 var newestVersion = -1.0
 var files = [];
-/*
 findGameFiles("HamishMonke", "USG").then(folders => {
     newestVersion = -1.0 //Reset
     
@@ -31,7 +30,6 @@ findGameFiles("HamishMonke", "USG").then(folders => {
 
     console.log("Found versions: ", GetGameVersions());
 });
-*/
 
 function GetGameVersions() {
     var versions = [];
