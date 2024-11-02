@@ -14,6 +14,7 @@ function teamFunction() {
 }
 
 function contactandlegalFunction() {
-    document.body.scrollTop = 0;
-    document.documentElement.scrollTop = 10000;
+    document.getElementById('contact').scrollIntoView();
+    //document.body.scrollTop = 0;
+    //document.documentElement.scrollTop = 10000;
 }
