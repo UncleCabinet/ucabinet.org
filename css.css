@@ -16,7 +16,7 @@ body {
 }
 
 .topnav a {
-    display: inline-block;
+    display: none;
     color: #f2f2f2;
     padding: 30px 35px;
     text-decoration: none;
