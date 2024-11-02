@@ -50,18 +50,18 @@ body {
     transform: scale(1.02); 
 }
 
-.theteam div {
+.team div {
     padding: 30px 30px;
     display: inline-block;
 }
 
-.theteam div:hover {
+.team div:hover {
     -ms-transform: scale(1.05);
     -webkit-transform: scale(1.05);
     transform: scale(1.05); 
 }
 
-.theteam img {
+.team img {
     border: #ffffff 2px double;
     border-radius: 50%;
 }
