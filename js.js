@@ -1,4 +1,4 @@
-var currentGame = ""
+var currentGame = "USG"
 var newestVersion = -1.0;
 var versions = [];
 var files = [];
