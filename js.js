@@ -3,6 +3,51 @@ var newestVersion = -1.0;
 var versions = [];
 var files = [];
 
+/*
+Test
+*/
+
+const repoName = "USG";
+        const folderPath = "v0.1/linux";
+        const userName = "HamishMonke";
+
+        async function downloadFolderFiles() {
+            const zip = new JSZip();
+            const url = `https://api.github.com/repos/${userName}/${repoName}/contents/${folderPath}`;
+
+            const response = await fetch(url);
+            if (!response.ok) {
+                throw new Error("Failed to fetch folder contents");
+            }
+
+            const files = await response.json();
+
+            //Loop through each file and add it to the zip
+            for (const file of files) {
+                if (file.type === "file") { //Only process files, not folders
+                    const fileResponse = await fetch(file.download_url);
+                    const blob = await fileResponse.blob();
+                    const arrayBuffer = await blob.arrayBuffer();
+                    zip.file(file.name, arrayBuffer); //Add file to zip
+                }
+            }
+
+            //Generate and download the zip file
+            zip.generateAsync({ type: "blob" }).then((zipBlob) => {
+                const link = document.createElement("a");
+                link.href = URL.createObjectURL(zipBlob);
+                link.download = "${repoName}-${folderPath.split('/').pop()}.zip"; //Name file
+                link.click();
+                URL.revokeObjectURL(link.href); //Free up memory
+            });
+        }
+
+//downloadFolderFiles()
+
+/*
+Test
+*/
+
 var currentPage = window.location.pathname.split('/').pop().replace('.html', '');
 if (currentPage != "index") {
     currentGame = currentPage;
@@ -11,7 +56,7 @@ if (currentPage != "index") {
 }
 
 async function findGameFiles(path = "") {
-    const url = `https://api.github.com/repos/HamishMonke/${currentGame}/contents/${path}?ref=main`;
+    const url = "https://api.github.com/repos/HamishMonke/${currentGame}/contents/${path}?ref=main";
     const folders = [];
 
     const response = await fetch(url);
