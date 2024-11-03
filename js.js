@@ -49,7 +49,7 @@ Test
 */
 
 var currentPage = window.location.pathname.split('/').pop().replace('.html', '');
-if (currentPage != "index") {
+if (!currentPage == "index") {
     currentGame = currentPage;
 
         console.log("current page: ", currentPage);
