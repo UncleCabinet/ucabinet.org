@@ -56,7 +56,7 @@ if (currentPage != "index") {
 }
 
 async function findGameFiles(path = "") {
-    const url = "https://api.github.com/repos/HamishMonke/${currentGame}/contents/${path}?ref=main";
+    const url = 'https://api.github.com/repos/HamishMonke/${currentGame}/contents/${path}?ref=main';
     const folders = [];
 
     const response = await fetch(url);
