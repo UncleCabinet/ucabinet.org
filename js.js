@@ -1,4 +1,4 @@
-var currentGame = "USG"
+var currentGame = "USG";
 var newestVersion = -1.0;
 var versions = [];
 var files = [];
@@ -52,6 +52,8 @@ var currentPage = window.location.pathname.split('/').pop().replace('.html', '')
 if (currentPage != "index") {
     currentGame = currentPage;
 
+        console.log("current page: ", currentPage);
+        
     GetGameVersions();
 }
 
