@@ -56,6 +56,9 @@ if (!currentPage == "index") {
         
     GetGameVersions();
 }
+else {
+        console.log("Failed ", currentPage);
+}
 
 async function findGameFiles(path = "") {
     const url = 'https://api.github.com/repos/HamishMonke/${currentGame}/contents/${path}?ref=main';
