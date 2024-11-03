@@ -1,8 +1,10 @@
+<script src="js.js"></script>
 <link rel="stylesheet" type="text/css" href="css.css">
 
 <!DOCTYPE html>
 <html>
 	<head>
+
 		<title>USG</title>
 		<link rel="icon" type="image/png" href="assets/RMIcon.png"/>
 		<meta name="viewport" content="width=device-width, initial-scale=1">
@@ -25,41 +27,53 @@
 	<body style="background-color: #000000;">
 		<center>
 			<a style="font-family: Arial ; color:white ; font-size: 30px ;">
-				This video game is on the Steam Store page but we strongly believe that our games shouldnt be limited to the people who have the money for them.<br>
+				This video game is on the Steam Store page but we strongly believe that our games shouldnt be limited to the people who can afford them.<br>
 				These download links are only here to save you from going to some shady pirate website that could give you a virus. Only download from people you trust or this website.<br><br>
 
-				>> WARNING: These versions may up to two updates behind <<
+				>> WARNING: These versions may up to two updates behind. If you want the latest updates make sure to get them from people you trust.
 			</a>
 
+			<div>
+				<a style="font-family: Arial ; color:white ; font-size: 30px ;">
+					Versions ->
+				</a>
+				
+				<div class="dropdown">
+					<button onclick="DropDownManager()" id="DropDownBTN" class="dropbtn">Getting files from github repo...</button>
+					<div id="myDropdown" class="dropdown-content">
+					</div>
+				</div>
+			</div>
+
 			<div class="downloads">
-				<div>
+				<div onclick="Download('Linux')">
 					<img src="assets/Linux.png" width="40" height="40"/>
 
-					<a style="font-family: Arial ; color:white ; font-size: 40px ;" href="https://rockmonkey-studio.itch.io/space-tech-demo" target="_self">
+					<a style="font-family: Arial ; color:white ; font-size: 40px ;">
 						Linux download
 					</a>
 				</div>
 				
-				<div>
+				<div onclick="Download('Mac')">
 					<img src="assets/Mac.png" width="40" height="40"/>
 
-					<a style="font-family: Arial ; color:white ; font-size: 40px ;" href="https://rockmonkey-studio.itch.io/space-tech-demo" target="_self">
+					<a style="font-family: Arial ; color:white ; font-size: 40px ;">
 						Mac download
 					</a>
 				</div>
 
-				<div>
+				<div onclick="Download('Android')">
 					<img src="assets/Android.png" width="40" height="40"/>
 
-					<a style="font-family: Arial ; color:white ; font-size: 40px ;" href="https://rockmonkey-studio.itch.io/space-tech-demo" target="_self">
+					<a style="font-family: Arial ; color:white ; font-size: 40px ;">
 						Android download
 					</a>
 				</div>
 
-				<div>
+				<div onclick="Download('Windows')">
 					<img src="assets/Windows.png" width="40" height="40"/>
 
-					<a style="font-family: Arial ; color:white ; font-size: 40px ;" href="https://rockmonkey-studio.itch.io/space-tech-demo" target="_self">
+					<a style="font-family: Arial ; color:white ; font-size: 40px ;">
 						Windows download
 					</a>
 				</div>

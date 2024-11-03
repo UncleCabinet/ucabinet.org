@@ -4,6 +4,9 @@ body {
 }
 
 .topnav a {
+    cursor: pointer;
+    user-select: none;
+
     display: inline-block;
     color: #000000;
     background-color: #ffffff;
@@ -83,7 +86,57 @@ a:visited {
     transform: scale(1.2);
 }
 
-.downloads div {
+.dropbtn {
+    background-color: #ffffff;
+    color: rgb(0, 0, 0);
+    padding: 16px;
+    font-size: 16px;
+    border: none;
+    cursor: pointer;
+}
+
+.dropbtn:hover, .dropbtn:focus {
+    background-color: #2980B9;
+}
+
+.dropdown {
+    position: relative;
     display: inline-block;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f1f1f1;
+    min-width: 160px;
+    overflow: auto;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+}
+
+.dropdown-content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+}
+
+.dropdown a:hover {background-color: #ddd;}
+
+.show {display: block;}
+
+.downloads div {
+    cursor: pointer;
+    user-select: none;
+
+    display: inline-block;
+    background-color: #303030;
     padding: 30px;
+
+    transition: padding, 0.25s;
+}
+
+.downloads div:hover {
+    background-color: #292929;
+    padding: 35px;
 }
