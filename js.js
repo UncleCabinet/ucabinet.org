@@ -3,65 +3,52 @@ var newestVersion = -1.0;
 var versions = [];
 var files = [];
 
-/*
-Test
-*/
+async function DownloadGitFiles(path) {
+    const zip = new JSZip();
+    const url = `https://api.github.com/repos/HamishMonke/${currentGame}/contents/${path}`;
 
-const repoName = "USG";
-        const folderPath = "v0.1/linux";
-        const userName = "HamishMonke";
+    const response = await fetch(url);
+    if (!response.ok) {
+        throw new Error("Failed to fetch folder contents");
+    }
 
-        async function downloadFolderFiles() {
-            const zip = new JSZip();
-            const url = `https://api.github.com/repos/${userName}/${repoName}/contents/${folderPath}`;
+    const files = await response.json();
 
-            const response = await fetch(url);
-            if (!response.ok) {
-                throw new Error("Failed to fetch folder contents");
-            }
-
-            const files = await response.json();
-
-            //Loop through each file and add it to the zip
-            for (const file of files) {
-                if (file.type === "file") { //Only process files, not folders
-                    const fileResponse = await fetch(file.download_url);
-                    const blob = await fileResponse.blob();
-                    const arrayBuffer = await blob.arrayBuffer();
-                    zip.file(file.name, arrayBuffer); //Add file to zip
-                }
-            }
-
-            //Generate and download the zip file
-            zip.generateAsync({ type: "blob" }).then((zipBlob) => {
-                const link = document.createElement("a");
-                link.href = URL.createObjectURL(zipBlob);
-                link.download = "${repoName}-${folderPath.split('/').pop()}.zip"; //Name file
-                link.click();
-                URL.revokeObjectURL(link.href); //Free up memory
-            });
+    //Loop through each file and add it to the zip
+    for (const file of files) {
+        if (file.type === "file") { //Only process files, not folders
+            const fileResponse = await fetch(file.download_url);
+            const blob = await fileResponse.blob();
+            const arrayBuffer = await blob.arrayBuffer();
+            zip.file(file.name, arrayBuffer); //Add file to zip
         }
+    }
 
-//downloadFolderFiles()
+    //Generate and download the zip file
+    zip.generateAsync({ type: "blob" }).then((zipBlob) => {
+        const link = document.createElement("a");
+        link.href = URL.createObjectURL(zipBlob);
+        link.download = `${currentGame}-${path.split('/').pop()}.zip`; //Name file
+        link.click();
+        URL.revokeObjectURL(link.href); //Free up memory
+    });
+}
 
-/*
-Test
-*/
-
-var currentPage = window.location.pathname.split('/').pop().replace('.html', '');
-if (!currentPage == "index") {
+var currentPage = String(window.location.pathname.split('/').pop().replace(".html", ""));
+if (currentPage != "index") {
     currentGame = currentPage;
-
-        console.log("current page: ", currentPage);
-        
+    
+    console.log("current page: ", currentPage);
+    
     GetGameVersions();
 }
 else {
-        console.log("Failed ", currentPage);
+    console.log("Failed on page: ", currentPage);
 }
 
 async function findGameFiles(path = "") {
-    const url = 'https://api.github.com/repos/HamishMonke/${currentGame}/contents/${path}?ref=main';
+    const url = `https://api.github.com/repos/HamishMonke/${currentGame}/contents/${path}?ref=main`;
+    console.log(url);
     const folders = [];
 
     const response = await fetch(url);
@@ -74,8 +61,8 @@ async function findGameFiles(path = "") {
         for (const item of data) {
             if (item.type === "dir") {
                 folders.push(item.path);
-                const subfolders = await findGameFiles(item.path);
-                folders.push(...subfolders);
+                //const subfolders = await findGameFiles(item.path); //No need for sub folders
+                //folders.push(...subfolders);
             }
         }
     }
@@ -106,9 +93,6 @@ function GetGameVersions() {
                     if (newestVersion < num){
                         newestVersion = num;
                         document.getElementById("DropDownBTN").innerText = fileName;
-                    }
-                    else {
-                        console.log("!newestVersion < ", num);
                     }
                 }
             });
@@ -145,7 +129,12 @@ window.onclick = function(event) {
 }
 
 function Download(os) {
-    console.log(os, " ", document.getElementById("DropDownBTN").innerText);
+    if (document.getElementById("DropDownBTN").innerText != "Getting files from github repo...") {
+        var version = document.getElementById("DropDownBTN").innerText;
+        console.log(`Downloading ${currentGame} v${version} on ${os} os`);
+
+        DownloadGitFiles(`${version}/${os}`);
+    }
 }
 
 function ScrollTo(elementName) {
