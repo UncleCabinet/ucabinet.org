@@ -86,17 +86,17 @@ a:visited {
     transform: scale(1.2);
 }
 
-.dropbtn {
-    background-color: #ffffff;
-    color: rgb(0, 0, 0);
-    padding: 16px;
-    font-size: 16px;
-    border: none;
+.DropDownBTN {
     cursor: pointer;
-}
+    user-select: none;
 
-.dropbtn:hover, .dropbtn:focus {
-    background-color: #2980B9;
+    padding: 16px;
+    border: none;
+
+    background-color: #303030;
+    font-family: Arial;
+    color:white;
+    font-size: 25px;
 }
 
 .dropdown {
@@ -105,25 +105,34 @@ a:visited {
 }
 
 .dropdown-content {
+    cursor: pointer;
+    user-select: none;
+
     display: none;
     position: absolute;
-    background-color: #f1f1f1;
     min-width: 160px;
     overflow: auto;
-    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
     z-index: 1;
 }
 
 .dropdown-content a {
-    color: black;
     padding: 12px 16px;
     text-decoration: none;
     display: block;
+
+    background-color: #303030;
+    font-family: Arial;
+    color:white;
+    font-size: 30px;
 }
 
-.dropdown a:hover {background-color: #ddd;}
+.dropdown a:hover {
+    background-color: #000000;
+}
 
-.show {display: block;}
+.show {
+    display: block;
+}
 
 .downloads div {
     cursor: pointer;

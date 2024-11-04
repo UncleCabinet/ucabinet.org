@@ -116,7 +116,7 @@ function DropDownManager() {
 }
 
 window.onclick = function(event) {
-    if (!event.target.matches('.dropbtn')) {
+    if (!event.target.matches('.DropDownBTN')) {
         var dropdowns = document.getElementsByClassName("dropdown-content");
         var i;
         for (i = 0; i < dropdowns.length; i++) {
@@ -131,6 +131,7 @@ window.onclick = function(event) {
 function Download(os) {
     if (document.getElementById("DropDownBTN").innerText != "Getting files from github repo...") {
         var version = document.getElementById("DropDownBTN").innerText;
+        
         console.log(`Downloading ${currentGame} v${version} on ${os} os`);
 
         DownloadGitFiles(`${version}/${os}`);
