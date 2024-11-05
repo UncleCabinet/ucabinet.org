@@ -27,6 +27,11 @@
 	</head>
 
 	<body style="background-color: #000000;">
+		<video id="BackgroundVideo" autoplay loop muted>
+			<source src="assets/USGBackgroundLoop.mp4" type="video/mp4">
+			Your browser does not support video.
+		</video>
+		
 		<center>
 			<a style="font-family: Arial ; color:white ; font-size: 30px ;">
 				This video game is on the Steam Store page but we strongly believe that our games shouldnt be limited to the people who can afford them.<br>
@@ -84,3 +89,16 @@
 		</center>
 	</body>
 </html>
+
+<style>
+	}
+        #background-video {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            z-index: -1; /* Send the video behind other elements */
+        }
+</style>
